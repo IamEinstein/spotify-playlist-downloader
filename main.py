@@ -1,5 +1,4 @@
 from __future__ import unicode_literals
-from msilib.schema import File
 # https://open.spotify.com/playlist/7kCXUhukUUnNYe5p7TkYfT?si=0f81e47275ed44c3
 import re
 import pafy
@@ -111,7 +110,7 @@ def get_track_ids(playlist_id):
 def get_track_data(track_id):
     meta = sp.track(track_id=track_id)
     track_details = {"name": meta['name'], "album": meta['album']
-                     ['name'], "artist": meta["album"]['artists'][0]['name']}
+                     ['name'], "artist": meta["album"]['artists'][0]['name'], "id": meta['id'], "url": meta['external_urls']['spotify']}
     return track_details
 
 # Function to export the data of all tracks in a playlist
